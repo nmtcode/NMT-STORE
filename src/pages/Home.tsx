@@ -4,6 +4,7 @@ import { Container, Skeleton, Pagination, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import ProductCard from "../components/product/ProductCard";
 import { productService } from "../services/productService";
+import {notify} from "../utils/notify";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -14,6 +15,14 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8; // عدد المنتجات في كل صفحة
 
+  const handleProductAdded = (product: Product) => {
+    console.log(`وصل التبليغ للـ Home! المنتج هو: ${product.title}`);
+
+    notify(
+      `${t("products.added")}: ${product.title}`, 
+      "success"
+    );
+  };
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -124,7 +133,11 @@ const Home = () => {
               <ProductSkeleton key={i} />
             ))
           : currentProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                onAdd={handleProductAdded}
+              />
             ))}
       </div>
 

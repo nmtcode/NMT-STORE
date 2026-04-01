@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -10,12 +10,7 @@ import {
   MenuItem,
   Tooltip,
 } from "@mui/material";
-import {
-  ShoppingCart,
-  // Storefront,
-  DarkMode,
-  LightMode,
-} from "@mui/icons-material";
+import { ShoppingCart, DarkMode, LightMode } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import { useTranslation } from "react-i18next";
@@ -31,6 +26,32 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
+  // --- منطق مزامنة الثيم مع Tailwind ---
+  const isDark = theme.palette.mode === "dark";
+
+  // دالة تبديل الثيم المزدوجة (MUI + Tailwind)
+  const handleToggleTheme = () => {
+    toggleColorMode(); // تبديل ثيم MUI
+
+    // تبديل كلاس Tailwind يدوياً لضمان استجابة المكونات غير التابعة لـ MUI
+    if (theme.palette.mode === "light") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
+
+  // التأكد من حالة الكلاس عند تحميل المكون لأول مرة
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDark]);
+
   const handleLangClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -44,8 +65,6 @@ const Navbar = () => {
     setAnchorEl(null);
   };
 
-  const isDark = theme.palette.mode === "dark";
-
   return (
     <AppBar
       position="sticky"
@@ -56,12 +75,10 @@ const Navbar = () => {
       <Container maxWidth="lg">
         <Toolbar className="justify-between px-0">
           {/* 1. الشعار - Logo Section */}
-          {/* 1. الشعار - Logo Section */}
           <Link
             to="/"
             className="flex items-center gap-3 group no-underline transition-transform active:scale-95"
           >
-            {/* حاوية الصورة (الشعار) */}
             <div className="bg-transparent p-1 group-hover:rotate-12 transition-transform flex-shrink-0">
               <img
                 src="/logo.png"
@@ -72,7 +89,6 @@ const Navbar = () => {
               />
             </div>
 
-            {/* حاوية النص - مفصولة عن حاوية الصورة لسهولة التحكم بالمسافة */}
             <Typography
               variant="h6"
               className="font-black tracking-tighter text-content sm:block hidden leading-none"
@@ -84,10 +100,10 @@ const Navbar = () => {
 
           {/* 2. الأزرار الجانبية - Actions Section */}
           <div className="flex items-center sm:gap-3 gap-1">
-            {/* زر تبديل الثيم */}
+            {/* زر تبديل الثيم المحسن */}
             <Tooltip title={isDark ? "Light Mode" : "Dark Mode"}>
               <IconButton
-                onClick={toggleColorMode}
+                onClick={handleToggleTheme}
                 className="text-content hover:bg-content/10 transition-all"
               >
                 {isDark ? (
@@ -133,7 +149,7 @@ const Navbar = () => {
               </MenuItem>
             </Menu>
 
-            {/* 3. أيقونة السلة (المكان الصحيح) */}
+            {/* 3. أيقونة السلة */}
             <Tooltip title={t("navbar.cart") || "Cart"}>
               <IconButton
                 component={Link}
@@ -147,7 +163,7 @@ const Navbar = () => {
                     "& .MuiBadge-badge": {
                       fontWeight: "bold",
                       fontSize: "0.7rem",
-                      backgroundColor: "var(--p-orange)", // تأكد أن هذا المتغير هو البرتقالي
+                      backgroundColor: "var(--p-orange)",
                       color: "white",
                     },
                   }}

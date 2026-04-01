@@ -22,12 +22,12 @@
   --text-muted: #64748b; /* رمادي متزن (Slate 500) للوصف */
   --border-color: #f1f5f9; /* حدود ناعمة جداً (Slate 100) */
   --glass-bg: rgba(255, 255, 255, 0.8); /* شفافية بيضاء ناعمة */
-  --font-main: 'Inter', 'Readex Pro', sans-serif;
+  --font-main: "Inter", "Readex Pro", sans-serif;
 }
 
 [dir="rtl"] {
   /* تقديم الخط العربي عند التحويل للعربية */
-  --font-main: 'Readex Pro', 'Inter', sans-serif;
+  --font-main: "Readex Pro", "Inter", sans-serif;
 }
 
 .dark {
@@ -52,4 +52,35 @@ body {
   transition:
     background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     color 0.4s ease;
+}
+
+/* Animations لـ MyToast */
+@keyframes enter {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes leave {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+.animate-enter {
+  animation: enter 0.35s ease-out forwards;
+}
+
+.animate-leave {
+  animation: leave 0.3s ease-in forwards;
 }

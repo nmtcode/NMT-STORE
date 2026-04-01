@@ -11,6 +11,11 @@ import "./i18n";
 // ✅ الاستيراد الصحيح للصفحة (تأكد من المسار حسب مشروعك)
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
+import ProductDetails from "./pages/ProductDetails";
+import { Toaster } from "react-hot-toast";
+import Footer from "./components/layout/Footer";
+import ScrollToTop from "./components/ui/ScrollToTop";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const { i18n } = useTranslation();
@@ -26,6 +31,7 @@ function App() {
       {/* CssBaseline سيقوم بضبط خلفية الـ body تلقائياً بناءً على وضع الثيم (Light/Dark) */}
       <CssBaseline /> 
       <CartProvider>
+        <Toaster/>
         <Router>
           <Navbar />
           {/* أزلنا bg-white و dark:bg-[#0a0a0a] لنترك الشفافية تعمل مع خلفية الـ Body الأصلية */}
@@ -33,8 +39,12 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
+          <Footer/>
+          <ScrollToTop />
         </Router>
       </CartProvider>
     </MyThemeProvider>

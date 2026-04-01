@@ -3,7 +3,8 @@ import { type CartItem, type Product } from "../types/product";
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (product: Product) => void;
+  // addToCart: (product: Product) => void;
+  addToCart: (product: Product, onAfterAdd?: (p: Product) => void) => void;
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
@@ -27,7 +28,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     localStorage.setItem("nmt_cart", JSON.stringify(cart));
   }, [cart]);
 
-  const addToCart = (product: Product) => {
+  const addToCart = (product: Product, onAfterAdd?: (p: Product) => void) => {
     setCart((prev) => {
       const existing = prev.find((item) => item.id === product.id);
       if (existing) {
@@ -39,6 +40,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       }
       return [...prev, { ...product, quantity: 1 }];
     });
+
+    // تبليغ الجهة المستدعية فوراً بعد التحديث
+    if (onAfterAdd) {
+      onAfterAdd(product);
+    }
   };
 
   const removeFromCart = (id: number) => {

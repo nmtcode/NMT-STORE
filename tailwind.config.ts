@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class", // <--- هذا السطر هو "المفتاح" الذي ينقصك!
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        // يمكنك إضافة ألوان متوافقة مع براند NMT
         nmtBlue: "#3b82f6",
         nmtDark: "#0a0a0a",
       },

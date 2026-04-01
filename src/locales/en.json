@@ -6,18 +6,13 @@
   },
   "latest": "Latest",
   "products": "Products",
-  "discover": "Discover the best tech and exclusive offers, carefully selected to fit your needs.",
-  "product": {
-    "price_label": "Price",
-    "add_to_cart": "Add to Cart",
-    "category": "Category"
-  },
+  "discover": "Discover the best technologies and exclusive deals carefully selected to suit your needs.",
   "cart": {
     "title": "Shopping Cart",
     "items_count": "Items",
-    "empty_title": "Your cart is empty",
-    "empty_desc": "Looks like you haven't added any products yet. Start exploring our featured products and add them here.",
-    "back_to_shop": "Back to Shopping",
+    "empty_title": "Your cart is currently empty",
+    "empty_desc": "It looks like you haven't added any products yet. Start exploring our featured products and add them here.",
+    "back_to_shop": "Back to Shop",
     "summary": "Order Summary",
     "subtotal": "Subtotal",
     "shipping": "Shipping",
@@ -25,7 +20,7 @@
     "total": "Grand Total",
     "checkout": "Proceed to Checkout",
     "remove_item": "Remove Item",
-    "secure_msg": "100% Secure Checkout"
+    "secure_msg": "100% Secure Payment"
   },
   "home": {
     "latest": "Latest",
@@ -33,5 +28,54 @@
     "loading": "Loading...",
     "add_to_cart": "Add to Cart",
     "subtitle": "Discover the best tech and exclusive offers"
+  },
+  "products": {
+    "price_label": "Price",
+    "add_to_cart": "Add to Cart",
+    "category": "Category",
+    "added": "Added"
+  },
+  "product": {
+    "back": "Back",
+    "reviews": "Reviews",
+    "description": "About Product",
+    "price_label": "Final Price",
+    "add_to_cart": "Add to Shopping Cart",
+    "not_found": "Sorry, Product Not Found",
+    "not_found_desc": "The product you are looking for is currently unavailable or the link you followed is incorrect."
+  },
+  "notifications": {
+    "success_title": "Success Operation",
+    "error_title": "Error!",
+    "add_success": "Product added to your cart successfully",
+    "remove_success": "Product removed from cart",
+    "cart_cleared": "Cart cleared successfully"
+  },
+  "footer": {
+    "brand_name": "NMT STORE",
+    "description": "Discover our exclusive collection of high-quality products, tailored specifically for you.",
+    "sections": {
+      "links": "Quick Links",
+      "contact": "Contact Us"
+    },
+    "links": {
+      "home": "Home",
+      "cart": "Shopping Cart",
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions"
+    },
+    "contact": {
+      "email": "nmt@support.com",
+      "address": "Sana'a, Yemen"
+    },
+    "payment_secure": "100% Secure Payment",
+    "developed_by": "Developed by"
+  },
+  "errors": {
+    "page_not_found": "Page Not Found",
+    "404_msg": "It looks like you've wandered into a warehouse section that doesn't exist yet!"
+  },
+  "buttons": {
+    "back_home": "Back to Home"
   }
 }
