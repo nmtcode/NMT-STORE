@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  /* ربط المتغيرات بـ Tailwind CSS v4 */
+  /* الآن، أينما تستخدم 'bg-brand' أو 'text-brand' سيظهر البرتقالي */
+  --color-brand: var(--p-orange);
+  --color-main: var(--bg-main);
+  --color-surface: var(--bg-paper);
+  --color-content: var(--text-main);
+  --color-muted: var(--text-muted);
+  --color-outline: var(--border-color);
+  --color-glass: var(--glass-bg);
+}
+
+:root {
+  /* --- النهار (Pro Orange Light) --- */
+  /* ألوان نظيفة، مع برتقالي ناري واضح واحترافي */
+  --p-orange: #eb5325; /* برتقالي محمر غني وحيوي (مثل درجات Red-Orange) */
+  --bg-main: #fcfcfd; /* أبيض مائل للرمادي الخفيف جداً (أفخم من الأبيض الصريح) */
+  --bg-paper: #ffffff; /* البطاقات بيضاء صريحة لتبرز فوق الخلفية */
+  --text-main: #0f172a; /* كحلي غامق جداً (Slate 900) للنصوص */
+  --text-muted: #64748b; /* رمادي متزن (Slate 500) للوصف */
+  --border-color: #f1f5f9; /* حدود ناعمة جداً (Slate 100) */
+  --glass-bg: rgba(255, 255, 255, 0.8); /* شفافية بيضاء ناعمة */
+  --font-main: 'Inter', 'Readex Pro', sans-serif;
+}
+
+[dir="rtl"] {
+  /* تقديم الخط العربي عند التحويل للعربية */
+  --font-main: 'Readex Pro', 'Inter', sans-serif;
+}
+
+.dark {
+  /* --- الليل (Vulcan Galaxy) --- */
+  /* ألوان مستوحاة من فوهات البراكين؛ سواد عميق مع توهج برتقالي سماوي */
+  --p-orange: #f86238; /* برتقالي سماوي "Sky" يتوهج بوضوح ويبرز في الظلام */
+  --bg-main: #030712; /* أسود "Slate 950" عميق جداً يعطي فخامة */
+  --bg-paper: #0f172a; /* "Slate 900" للبطاقات لتبدو بارزة عن الخلفية */
+  --text-main: #f8fafc; /* أبيض ثلجي مريح للنظر */
+  --text-muted: #94a3b8; /* رمادي مزرق للنصوص الثانوية */
+  --border-color: #1e293b; /* حدود غامقة "Slate 800" */
+  --glass-bg: rgba(3, 7, 18, 0.6); /* تأثير زجاجي معتم جداً وفخم (أسود زجاجي) */
+}
+
+/* تطبيق عالمي للخطوط والألوان مع تنعيم الحواف وانتقال سينمائي */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s ease;
+}

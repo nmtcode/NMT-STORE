@@ -1,0 +1,37 @@
+{
+  "navbar": {
+    "store_name": "NMT",
+    "cart": "Shopping Cart",
+    "change_language": "Change Language"
+  },
+  "latest": "Latest",
+  "products": "Products",
+  "discover": "Discover the best tech and exclusive offers, carefully selected to fit your needs.",
+  "product": {
+    "price_label": "Price",
+    "add_to_cart": "Add to Cart",
+    "category": "Category"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "items_count": "Items",
+    "empty_title": "Your cart is empty",
+    "empty_desc": "Looks like you haven't added any products yet. Start exploring our featured products and add them here.",
+    "back_to_shop": "Back to Shopping",
+    "summary": "Order Summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Grand Total",
+    "checkout": "Proceed to Checkout",
+    "remove_item": "Remove Item",
+    "secure_msg": "100% Secure Checkout"
+  },
+  "home": {
+    "latest": "Latest",
+    "products": "Products",
+    "loading": "Loading...",
+    "add_to_cart": "Add to Cart",
+    "subtitle": "Discover the best tech and exclusive offers"
+  }
+}
