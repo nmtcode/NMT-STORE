@@ -1,73 +1,67 @@
-# React + TypeScript + Vite
+# 🛒 NMT Store - React E-commerce Project 2026
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+مشروع متجر إلكتروني متكامل مبني باستخدام React و Vite، يتميز بتصميم عصري واستجابة كاملة لكافة الشاشات.
 
-Currently, two official plugins are available:
+## 🚀 التحديثات الأخيرة (Latest Updates)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 1. نظام السلة وتأكيد الشراء (Cart & Checkout)
 
-## React Compiler
+- تم إضافة مكون مستقل باسم `CheckoutConfirmModal` لإدارة عملية تأكيد الطلب.
+- تظهر نافذة منبثقة (Modal) احترافية عند الضغط على "إتمام الشراء".
+- يتم تفريغ السلة تلقائياً عند التأكيد عبر دالة `clearCart`.
+- إضافة إشعارات نجاح (Toast Notifications) بعد إتمام العملية.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. تحسينات واجهة الجوال (Mobile Optimization)
 
-## Expanding the ESLint configuration
+- تعديل شبكة عرض المنتجات لتظهر في **عمودين (2 Columns)** على الشاشات الصغيرة بدلاً من عمود واحد.
+- إخفاء وصف المنتجات والوصف الفرعي في الهيدر تلقائياً على الجوال باستخدام كلاسات `hidden md:block` لتوفير مساحة وتجنب الازدحام.
+- تحديث الـ Skeleton Loading ليتناسب مع أبعاد العرض الجديدة في الجوال.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 3. اللغات والترجمة (Locales)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- دعم كامل للغتين العربية والإنجليزية في السلة ونافذة التأكيد.
+- ملفات الترجمة المحدثة: `src/locales/ar.json` و `src/locales/en.json`.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ التقنيات المستخدمة
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- React 18 / TypeScript
+- Tailwind CSS (التنسيق المتجاوب)
+- Material UI (المكونات والنوافذ المنبثقة)
+- i18next (إدارة اللغات)
+- Vite (بيئة التطوير والتجميع)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 💻 تعليمات التشغيل
+
+### التثبيت:
+
+npm install
+
+### التشغيل المحلي:
+
+npm run dev
+
+### البث على الشبكة المحلية (فتح الموقع من الجوال):
+
+npm run dev -- --host
+
+_ملاحظة: تأكد من أن الجوال والكمبيوتر متصلان بنفس شبكة الـ Wi-Fi، ثم استخدم رابط الـ Network IP الظاهر في الـ Terminal._
+
+---
+
+## 📂 هيكل المجلدات الجديد
+
+src/
+├── components/
+│ └── CheckoutConfirmModal.tsx <-- مكون التأكيد الجديد
+├── pages/
+│ ├── Home.tsx <-- تحديث الـ Grid والـ Skeleton
+│ └── Cart.tsx <-- ربط منطق الـ Modal و clearCart
+└── locales/ <-- إضافة مفاتيح الترجمة الجديدة
+
+---
+
+تم التحديث بواسطة Gemini AI - NMT Store 2026
