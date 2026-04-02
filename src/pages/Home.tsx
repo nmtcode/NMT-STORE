@@ -4,7 +4,7 @@ import { Container, Skeleton, Pagination, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import ProductCard from "../components/product/ProductCard";
 import { productService } from "../services/productService";
-import {notify} from "../utils/notify";
+import { notify } from "../utils/notify";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -18,10 +18,7 @@ const Home = () => {
   const handleProductAdded = (product: Product) => {
     console.log(`وصل التبليغ للـ Home! المنتج هو: ${product.title}`);
 
-    notify(
-      `${t("products.added")}: ${product.title}`, 
-      "success"
-    );
+    notify(`${t("products.added")}: ${product.title}`, "success");
   };
 
   useEffect(() => {
@@ -128,7 +125,7 @@ const Home = () => {
       </header>
 
       {/* Grid Layout */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
         {loading
           ? Array.from(new Array(itemsPerPage)).map((_, i) => (
               <ProductSkeleton key={i} />
@@ -141,7 +138,6 @@ const Home = () => {
               />
             ))}
       </div>
-
       {/* Pagination Section */}
       {!loading && totalPages > 1 && (
         <Stack spacing={2} className="mt-16 items-center">
