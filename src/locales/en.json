@@ -5,7 +5,7 @@
     "change_language": "Change Language"
   },
   "latest": "Latest",
-  "products": "Products",
+
   "discover": "Discover the best technologies and exclusive deals carefully selected to suit your needs.",
   "cart": {
     "title": "Shopping Cart",
@@ -20,6 +20,11 @@
     "total": "Grand Total",
     "checkout": "Proceed to Checkout",
     "remove_item": "Remove Item",
+    "confirm_title": "Confirm Your Order",
+    "confirm_desc": "Are you sure you want to complete the purchase? Your items will be prepared immediately.",
+    "confirm_yes": "Yes, Checkout",
+    "cancel": "Cancel",
+    "checkout_success": "Purchase completed successfully! Your order is being processed.",
     "secure_msg": "100% Secure Payment"
   },
   "home": {

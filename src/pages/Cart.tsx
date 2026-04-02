@@ -8,14 +8,31 @@ import {
   DeleteOutline,
   // ShoppingBagOutlined,
   ArrowBackIosNew,
+  // Message,
 } from "@mui/icons-material";
 import { Button, IconButton } from "@mui/material";
+import { notify } from "../utils/notify";
+import CheckoutConfirmModal from "../components/ui/CheckoutConfirmModal";
 
 const Cart: React.FC = () => {
-  const { cart, removeFromCart, updateQuantity, totalPrice, totalItems } =
+  const { clearCart,cart, removeFromCart, updateQuantity, totalPrice, totalItems } =
     useCart();
   const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
+  const handleCheckoutProcess = () => {
+    setIsModalOpen(false); // إغلاق النافذة
+
+    // 1. تنظيف السلة
+    clearCart();
+
+    // 2. إظهار الـ Toast
+    notify(
+      t("cart.checkout_success") ||
+        "تم إتمام عملية الشراء بنجاح وطلبك قيد التنفيذ!",
+      "success",
+    );
+  };
   if (cart.length === 0) {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center space-y-6 animate-fade-in px-4">
@@ -181,6 +198,7 @@ const Cart: React.FC = () => {
               variant="contained"
               size="large"
               className="bg-brand hover:bg-brand/90 py-4 rounded-2xl font-black text-xl shadow-xl shadow-brand/20 transition-all active:scale-95"
+              onClick={() => setIsModalOpen(true)}
             >
               {t("cart.checkout") || "إتمام عملية الشراء"}
             </Button>
@@ -194,6 +212,11 @@ const Cart: React.FC = () => {
           </div>
         </div>
       </div>
+      <CheckoutConfirmModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={handleCheckoutProcess}
+      />
     </div>
   );
 };

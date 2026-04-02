@@ -58,8 +58,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     );
   };
 
-  const clearCart = () => setCart([]);
-
+  const clearCart = () => {
+    setCart([]); // تفريغ المصفوفة
+    localStorage.removeItem("cart"); // إذا كنت تستخدم التخزين المحلي
+  };
   const totalPrice = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0,
